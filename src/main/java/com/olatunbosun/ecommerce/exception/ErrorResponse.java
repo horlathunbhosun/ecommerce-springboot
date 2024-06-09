@@ -1,6 +1,12 @@
 package com.olatunbosun.ecommerce.exception;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 /**
  * @author olulodeolatunbosun
@@ -8,17 +14,17 @@ import lombok.Data;
  */
 
 @Data
+@Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@NoArgsConstructor
+@AllArgsConstructor
 public class ErrorResponse {
 
     private int statusCode;
     private boolean status;
+    private List<String> errors;
+
     private String message;
     private long timestamp;
-    public ErrorResponse() {}
-    public ErrorResponse(int statusCode,  boolean status,String message, long timestamp) {
-        this.statusCode = statusCode;
-        this.status = status;
-        this.message = message;
-        this.timestamp = timestamp;
-    }
+
 }

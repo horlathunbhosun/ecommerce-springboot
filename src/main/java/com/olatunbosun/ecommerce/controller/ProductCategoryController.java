@@ -1,6 +1,7 @@
 package com.olatunbosun.ecommerce.controller;
 
 import com.olatunbosun.ecommerce.exception.ApiResponse;
+import com.olatunbosun.ecommerce.service.ProductCategoryServiceImpl;
 import com.olatunbosun.ecommerce.service.ProductServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,19 +17,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/v1/products")
+@RequestMapping("/v1/product-category")
 @RequiredArgsConstructor
-public class ProductController {
-    private final ProductServiceImpl productService;
+public class ProductCategoryController {
+    private final ProductCategoryServiceImpl productCategoryService;
 
 
     @GetMapping("")
-    public ApiResponse getAllProducts() {
-        return productService.getAllProducts();
+    public ApiResponse getAllProductCategory() {
+        return productCategoryService.getAllProductCategories();
     }
 
     @GetMapping("/{id}")
     public ApiResponse getProductById(@PathVariable Long id) {
-        return productService.getProductById(id);
+        return productCategoryService.getProductCategoryById(id);
     }
 }

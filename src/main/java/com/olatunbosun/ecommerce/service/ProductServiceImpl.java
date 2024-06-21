@@ -70,6 +70,7 @@ public class ProductServiceImpl implements ProductService{
     private ProductDTO mapProductToDTO(Product product) {
         ProductDTO productDTO = new ProductDTO();
 
+
         // Set properties of the DTO from the corresponding properties of the entity
         productDTO.setId(product.getId());
         productDTO.setName(product.getName());
